@@ -1,0 +1,33 @@
+{
+  "name": "hjstep-blog",
+  "version": "0.1.0",
+  "description": "⛄️ frameworkless movement! 프레임워크 없이 구현한 개인 블로그입니다.",
+  "main": "index.js",
+  "scripts": {
+    "transfer": "node server/markdownToJSON.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjstep/hjstep-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hjstep/hjstep-blog/issues"
+  },
+  "homepage": "https://github.com/hjstep/hjstep-blog#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^2.79.1",
+    "rollup-plugin-css-bundle": "^1.0.4",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "markdown-it": "^14.0.0"
+  }
+}
