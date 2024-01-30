@@ -1,0 +1,42 @@
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"); */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Arial", sans-serif;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+.posts-ul, .posts-ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* li {
+  margin-bottom: 20px;
+} */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.primary {
+  color: #fb8500;
+}
+
+.secondary {
+  color: #219ebc;
+}
+
+.default {
+  color: #023047;
+}
