@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- <base href="/posts" /> -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="hjstep 기술 블로그입니다. 프론트엔드 기술 지식과 경험을 공유합니다."
+    />
+    <title>hjstep | 기술 블로그</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
+      integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./dist/index.css" />
+  </head>
+  <body>
+    <noscript>
+      <h1>You must enable javascript to view this page.</h1>
+    </noscript>
+
+    <template id="template-detail">
+      <section class="detail">
+        <header>
+          <h1 class="title"></h1>
+          <time class="date"></time>
+        </header>
+        <hr />
+        <article class="markdown-body"></article>
+      </section>
+    </template>
+    <template id="template-post">
+      <li>
+        <article class="post">
+          <header>
+            <h1 class="title"></h1>
+          </header>
+          <p class="summary"></p>
+          <label><mark>#react</mark></label>
+          <label><mark>#tyepscript</mark></label>
+          <time class="date"></time>
+        </article>
+      </li>
+    </template>
+    <template id="template-header">
+      <header class="navigation">
+        <div class="left">
+          <span class="primary profile-id">hjstep</span>
+        </div>
+        <div class="right">
+          <span><a data-navigation href="#/posts">posts</a></span>
+          <span
+            ><a
+              data-navigation
+              target="_blank"
+              href="https://github.com/hjstep"
+            >
+              github
+            </a></span
+          >
+        </div>
+      </header>
+    </template>
+
+    <div class="container">
+      <div id="root">
+        <section class="header">
+          <div data-component="app"></div>
+        </section>
+        <section class="page">
+          <section>
+            <ul data-component="posts" class="posts-ul"></ul>
+          </section>
+          <section>
+            <div data-component="detail"></div>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="dist/index.js" defer></script>
+  </body>
+</html>
