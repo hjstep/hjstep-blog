@@ -1,5 +1,3 @@
-import { stat } from "fs";
-
 const state = {
   posts: [],
   isPending: true,

@@ -4,10 +4,14 @@
   "description": "⛄️ frameworkless movement! 프레임워크 없이 구현한 개인 블로그입니다.",
   "main": "index.js",
   "scripts": {
-    "transfer": "node server/markdownToJSON.js",
+    "transfer:json": "node server/markdownToJSON.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "lint:es": "eslint .",
+    "lint:es:fix": "eslint . --fix",
+    "prettier": "prettier '**/*' --check",
+    "prettier:fix": "prettier '**/*' --write"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@titicaca/eslint-config-triple": "^5.1.1",
+    "prettier": "^3.2.4",
     "rollup": "^2.79.1",
     "rollup-plugin-css-bundle": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2"
