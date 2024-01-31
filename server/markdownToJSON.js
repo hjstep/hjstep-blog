@@ -2,15 +2,15 @@ const fs = require("fs");
 const path = require("path");
 const frontMatter = require("front-matter");
 const markdownIt = require("markdown-it");
-// const POST_PATH = path.join(process.cwd(), "posts", "react");
-const POST_PATH = './markdown/react/'
+const MARKDOWN_DIR = './markdown'
+const JSON_DIR = './data'
+const extension = '.json';
 
-const parsePOST = () => {
-  const files = fs.readdirSync(POST_PATH);
+const transferMarkdownToJSON = (filePath) => {
+  const files = fs.readdirSync(filePath);
   const posts = files.reduce((result, fileName) => {
-    const file = fs.readFileSync(path.join(POST_PATH, fileName), "utf8");
+    const file = fs.readFileSync(path.join(filePath, fileName), "utf8");
     const { attributes, body } = frontMatter(file);
-    // Markdown을 HTML로 변환
     const htmlBody = markdownIt().render(body);
     result.push({ attributes, htmlBody });
     return result;
@@ -18,19 +18,31 @@ const parsePOST = () => {
   return posts;
 };
 
-(async () => {
-  const posts = await parsePOST();
-  console.log("-----");
-    // console.log(posts);
+const writeFileJSON = (entry) => {
+    const filePath = path.join(MARKDOWN_DIR, entry.name);
+    const posts = transferMarkdownToJSON(filePath);
     console.log(JSON.stringify({ posts }));
 
-  // JSON 파일로 저장
-  const jsonFilePath = "./data/react.json";
-  fs.writeFile(jsonFilePath, JSON.stringify({ posts }), "utf8", (err) => {
-    if (err) {
-      console.error("Error writing JSON file:", err);
-    } else {
-      console.log("JSON file created successfully.");
-    }
-  });
+    fs.writeFile(path.join(JSON_DIR, entry.name+extension), JSON.stringify({ posts }), "utf8", (err) => {
+      if (err) {
+        console.error("JSON 파일 생성 시점 에러발생", err);
+      } else {
+        console.log("JSON 파일 생성 성공");
+      }
+    });
+      
+}
+
+const readMarkdownDir = () => {
+  fs.readdir(MARKDOWN_DIR, { withFileTypes: true }, (_, entries) => {
+    entries.forEach(entry => {
+      if (entry.isDirectory()) {
+        writeFileJSON(entry)
+      }
+    })
+  })
+}
+
+;(() => {
+   readMarkdownDir()
 })();
