@@ -8,7 +8,7 @@ on:
       - 'markdown/**/*'
 
 jobs:
-  build:
+  transfer:
     runs-on: ubuntu-latest
 
     steps:
