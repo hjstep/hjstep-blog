@@ -23,7 +23,7 @@ export default {
         cssnano()
        ],
        minimize: true,
-      extract: 'dist/index.css', 
+      extract: 'index.css', 
     })
   ],
 };
