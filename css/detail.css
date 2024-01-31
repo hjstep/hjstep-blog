@@ -1,0 +1,44 @@
+.detail h1,
+.detail h2,
+.detail h3 {
+  color: #615f5f;
+}
+
+.detail p {
+  color: #615f5f;
+  line-height: 1.6;
+}
+
+.detail {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+}
+.detail .title {
+  text-align: center;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  color: #023047;
+  margin-bottom: 10px;
+  padding: 20px 0;
+}
+
+.detail .date {
+  color: #666;
+}
+
+.detail .content {
+  color: #615f5f;
+  line-height: 1.6;
+}
+
+.detail hr {
+  border: none;
+  height: 2px;
+  background-color: rgba(2, 48, 71, 0.3);
+  margin: 20px 0 50px 0;
+}
