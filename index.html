@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- <base href="/posts" /> -->
@@ -33,6 +33,16 @@
       <h1>You must enable javascript to view this page.</h1>
     </noscript>
 
+    <template id="template-404">
+      <section class="page-404">
+        <h1>404 ERROR!</h1>
+        <p>
+          페이지를 찾을 수 없습니다.
+          <br />주소를 다시 확인해주세요.
+        </p>
+        <a href="#/posts">Go Home</a>
+      </section>
+    </template>
     <template id="template-detail">
       <section class="detail">
         <header>
@@ -50,14 +60,13 @@
             <h1 class="title"></h1>
           </header>
           <p class="summary"></p>
-          <label><mark>#react</mark></label>
-          <label><mark>#tyepscript</mark></label>
+          <div class="tag"></div>
           <time class="date"></time>
         </article>
       </li>
     </template>
     <template id="template-header">
-      <header class="navigation">
+      <header class="navigation header">
         <div class="left">
           <span class="primary profile-id">hjstep</span>
         </div>
@@ -78,7 +87,7 @@
 
     <div class="container">
       <div id="root">
-        <section class="header">
+        <section>
           <div data-component="app"></div>
         </section>
         <section class="page">
@@ -87,6 +96,9 @@
           </section>
           <section>
             <div data-component="detail"></div>
+          </section>
+          <section>
+            <div data-component="404"></div>
           </section>
         </section>
       </div>
