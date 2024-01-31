@@ -1,0 +1,14 @@
+name: optimize images
+on: pull_request
+jobs:
+  optimize:
+    name: calibreapp/image-actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: compress
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.ACCESS_TOKEN }}
