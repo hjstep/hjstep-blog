@@ -1,0 +1,235 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+  justify-content: center;
+}
+
+#root {
+  width: 80%; 
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #023047;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;
+}
+.navigation {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+}
+.left,
+.right {
+  display: flex;
+}
+
+.left {
+  padding-left: 5px;
+  justify-content: flex-start;
+}
+.left span {
+  display: flex;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.right {
+  padding-right: 5px;
+  justify-content: flex-end;
+}
+.right span {
+  display: flex;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    width: 95%;
+  }
+
+  .header, .navigation, .left, .right {
+    padding: 10px;
+  }
+
+  .left, .right {
+    justify-content: center;
+
+  }
+
+  .page {
+    padding-top: 10px;
+  }
+}
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"); */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Arial", sans-serif;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+.posts-ul, .posts-ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* li {
+  margin-bottom: 20px;
+} */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.primary {
+  color: #fb8500;
+}
+
+.secondary {
+  color: #219ebc;
+}
+
+.default {
+  color: #023047;
+}
+
+/* 게시물 카드 스타일 */
+.post {
+  margin-bottom: 20px;
+  background-color: #fff; /* 배경 색상 */
+  padding: 20px; /* 내부 여백 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  border-radius: 10px; /* 둥근 모서리 */
+  transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+  cursor: pointer; /* 포인터 커서 */
+}
+
+.post:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 강조 */
+}
+
+/* 제목 스타일 */
+.title {
+  font-size: 1.5em; /* 글자 크기 */
+  margin-bottom: 0.5em; /* 제목과 요약 사이의 여백 */
+  color: #023047;
+}
+
+/* 요약 텍스트 스타일 */
+.summary {
+  color: #666; /* 글자 색상 */
+  margin-bottom: 1em; /* 요약과 태그 사이의 여백 */
+}
+
+/* 태그 스타일 */
+label {
+  background-color: #f2f2f2; /* 배경 색상 */
+  padding: 5px 10px; /* 내부 여백 */
+  margin-right: 10px; /* 태그 사이의 여백 */
+  border-radius: 20px; /* 둥근 모서리 */
+}
+
+mark {
+  background-color: transparent; /* 배경색 제거 */
+  color: #fb8500; /* 글자 색상 */
+  font-weight: bold; /* 굵은 글꼴 */
+}
+
+/* 날짜 스타일 */
+.date {
+  font-size: 0.8em; /* 글자 크기 */
+  color: #999; /* 글자 색상 */
+}
+
+.detail h1,
+.detail h2,
+.detail h3 {
+  color: #615f5f;
+}
+
+.detail p {
+  color: #615f5f;
+  line-height: 1.6;
+}
+
+.detail {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+}
+.detail .title {
+  text-align: center;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  color: #023047;
+  margin-bottom: 10px;
+  padding: 20px 0;
+}
+
+.detail .date {
+  color: #666;
+}
+
+.detail .content {
+  color: #615f5f;
+  line-height: 1.6;
+}
+
+.detail hr {
+  border: none;
+  height: 2px;
+  background-color: rgba(2, 48, 71, 0.3);
+  margin: 20px 0 50px 0;
+}
+
+.profile-id {
+  padding: 10px 20px;
+  text-transform: uppercase; /* 대문자 텍스트 */
+  font-weight: bold; /* 굵은 글꼴 */
+  transition: all 0.3s; /* 부드러운 전환 효과 */
+}
+
+a {
+  padding: 10px 20px;
+  border: none; /* 테두리 제거 */
+  background: none; /* 배경 제거 */
+  color: #219ebc; /* 텍스트 색상 */
+  text-transform: uppercase; /* 대문자 텍스트 */
+  font-weight: bold; /* 굵은 글꼴 */
+  cursor: pointer; /* 포인터 커서 */
+  transition: all 0.3s; /* 부드러운 전환 효과 */
+  text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+/* <a> 태그 호버 시 스타일 변경 */
+a:hover {
+  color: #8ecae6; /* 호버 시 텍스트 색상 변경 */
+}
