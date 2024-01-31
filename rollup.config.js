@@ -1,7 +1,8 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
-import cssbundle from "rollup-plugin-css-bundle";
+import postcss from 'rollup-plugin-postcss';
+import cssnano from 'cssnano';
 
 export default {
   input: "./index.js", // 진입점 파일 설정
@@ -14,6 +15,12 @@ export default {
     resolve(),
     commonjs(),
     terser(),
-    cssbundle({ output: "./dist/index.css" }),
+    postcss({
+      plugins: [
+        cssnano()
+       ],
+       minimize: true,
+      extract: 'dist/index.css', 
+    })
   ],
 };
