@@ -11,6 +11,9 @@ export default {
     format: "iife", // 즉시 실행 함수 표현식 (웹 브라우저에서 실행하기 위함)
     sourcemap: true, // 소스 맵 활성화
   },
+  treeshake: {
+    preset: 'recommended'
+  },
   plugins: [
     resolve(),
     commonjs(),
