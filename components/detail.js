@@ -1,28 +1,27 @@
-const NOT_FOUND_POST = {
-  attributes: {
-    title: '존재하지않는 포스트입니다.',
-  },
-  htmlBody: '',
-}
-const createDetailNode = () => {
-  const template = document.getElementById('template-detail')
-  return template.content.firstElementChild.cloneNode(true)
+import { applyTemplateWithCallback } from '../utils/common.js'
+import { NOT_FOUND_POST } from '../utils/constant.js'
+
+const STATE_KEY = 'posts'
+const TEMPLATE_NAME = 'detail'
+const bindDataToNode = ({ attributes, htmlBody }, templateNode) => {
+  const clonedTemplateNode = templateNode.cloneNode(true)
+  clonedTemplateNode.querySelector('.markdown-body').innerHTML = htmlBody
+  clonedTemplateNode.querySelector('.title').textContent = attributes.title
+  clonedTemplateNode.querySelector('.date').textContent =
+    attributes.date?.slice(0, 10)
+  return clonedTemplateNode
 }
 
-export default async (id, element, dispatch) => {
-  const posts = await dispatch('posts')
-  const extractedPost = posts[Number(id) - 1]
+export default async (paramId, element, dispatch) => {
+  const posts = await dispatch(STATE_KEY)
+  const extractedPost = posts[Number(paramId) - 1]
   const { attributes, htmlBody } = extractedPost || NOT_FOUND_POST
-
-  const detailElement = createDetailNode()
-  detailElement.querySelector('.markdown-body').innerHTML = htmlBody
-  detailElement.querySelector('.title').textContent = attributes.title
-  detailElement.querySelector('.date').textContent = attributes.date?.slice(
-    0,
-    10,
-  )
-  const newElement = element.cloneNode(true)
-  newElement.innerHTML = ''
-  newElement.appendChild(detailElement)
-  return newElement
+  return applyTemplateWithCallback(
+    element,
+    TEMPLATE_NAME,
+  )((parentNode, templateNode) => {
+    const bindedTemplateNode = bindDataToNode({ attributes, htmlBody }, templateNode)
+    parentNode.appendChild(bindedTemplateNode)
+    return parentNode
+  })
 }
