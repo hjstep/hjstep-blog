@@ -4,16 +4,12 @@ const state = {
 }
 
 const fetchPosts = async () => {
+  if (!state.isPending) return
   try {
-    if (!state.isPending) return
     const response = await fetch('./data/react.json')
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch JSON file')
-    }
+    if (!response.ok) throw new Error('Failed to fetch JSON file')
 
     const { posts } = await response.json()
-
     state.posts = posts
     state.isPending = false
   } catch (error) {
@@ -24,11 +20,10 @@ const fetchPosts = async () => {
 export default async (key) => {
   try {
     await fetchPosts()
-    if (state[key] === undefined) {
-      throw new Error('undefined key')
-    }
+    if (state[key] === undefined) throw new Error('Undefined key')
     return state[key]
   } catch (error) {
-    console.error('Error load state:', error)
+    console.error('Error loading state:', error)
+    return null // 또는 적절한 에러 처리
   }
 }

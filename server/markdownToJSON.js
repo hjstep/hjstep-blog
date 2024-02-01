@@ -21,7 +21,6 @@ const transferMarkdownToJSON = (filePath) => {
 const writeFileJSON = (entry) => {
   const filePath = path.join(MARKDOWN_DIR, entry.name)
   const posts = transferMarkdownToJSON(filePath)
-  console.log(JSON.stringify({ posts }))
 
   fs.writeFile(
     path.join(JSON_DIR, entry.name + extension),

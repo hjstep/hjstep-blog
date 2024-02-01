@@ -1,39 +1,43 @@
-const createPostsNode = () => {
-  const template = document.getElementById('template-post')
-  return template.content.firstElementChild.cloneNode(true)
-}
+import { applyTemplateWithCallback } from '../utils/common.js'
 
-const getTemplate = ({ attributes }, index) => {
-  const element = createPostsNode()
+const STATE_KEY = 'posts'
+const TEMPLATE_NAME = 'posts'
+const bindDataToNode = ({ attributes }, index, templateNode) => {
+  const clonedTemplateNode = templateNode.cloneNode(true) // 복제하지않으면 동기화됨 live node
   attributes.tag.forEach((tag) => {
-    element.querySelector('.tag').innerHTML +=
+    clonedTemplateNode.querySelector('.tag').innerHTML +=
       `<label><mark>#${tag}</mark></label>`
   })
 
-  element.querySelector('.post').dataset.index = index + 1
-  element.querySelector('.title').textContent = attributes.title
-  element.querySelector('.summary').textContent = attributes.summary
-  element.querySelector('.date').textContent = attributes.date.slice(0, 10)
-  return element
+  clonedTemplateNode.querySelector('.post').dataset.index = index + 1
+  clonedTemplateNode.querySelector('.title').textContent = attributes.title
+  clonedTemplateNode.querySelector('.summary').textContent = attributes.summary
+  clonedTemplateNode.querySelector('.date').textContent = attributes.date.slice(
+    0,
+    10,
+  )
+  return clonedTemplateNode
 }
 
 export default async (element, dispatch, redirect) => {
-  const posts = await dispatch('posts')
+  const posts = await dispatch(STATE_KEY)
 
-  const newElement = element.cloneNode(true)
-  newElement.innerHTML = ''
-  posts
-    .map((post, index) => getTemplate(post, index))
-    .forEach((node) => newElement.appendChild(node))
+  return applyTemplateWithCallback(
+    element,
+    TEMPLATE_NAME,
+  )((parentNode, templateNode) => {
+    posts
+      .map((post, index) => bindDataToNode(post, index, templateNode))
+      .forEach((node) => parentNode.appendChild(node))
+    parentNode.onclick = (e) => {
+      const $post = e.target.closest('article.post')
 
-  newElement.addEventListener('click', (e) => {
-    const $post = e.target.closest('article.post')
-
-    if ($post) {
-      const id = $post.getAttribute('data-index')
-      redirect(`/posts/${id}`)
+      if ($post) {
+        const id = $post.getAttribute('data-index')
+        redirect(`/posts/${id}`)
+      }
     }
-  })
 
-  return newElement
+    return parentNode
+  })
 }
