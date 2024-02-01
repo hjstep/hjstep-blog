@@ -1,6 +1,13 @@
-const ROUTE_PARAMETER_REGEXP = /:(\w+)/g
-const URL_FRAGMENT_REGEXP = '([^\\/]+)'
-import { renderDOM } from './render.js'
+import { renderDOM } from './utils/processRenderTasks.js'
+import {
+  ROUTE_PARAMETER_REGEXP,
+  URL_FRAGMENT_REGEXP,
+} from './utils/constant.js'
+
+const isHashFalsy = (hash) => {
+  const cleanedHash = hash.replace(/^#\/?/, '')
+  return cleanedHash === 'undefined' || cleanedHash.trim() === ''
+}
 
 const extractUrlParams = (route, windowHash) => {
   const params = {}
@@ -19,6 +26,14 @@ const extractUrlParams = (route, windowHash) => {
   })
 
   return params
+}
+
+const notFoundRouteHandler = (notFound) => {
+  if (isHashFalsy(window.location.hash)) {
+    window.location.hash = '#/posts'
+    return
+  }
+  notFound()
 }
 
 export default () => {
@@ -42,7 +57,7 @@ export default () => {
     })
 
     if (!currentRoute) {
-      notFound()
+      notFoundRouteHandler(notFound)
       return
     }
 
@@ -73,8 +88,8 @@ export default () => {
     return router
   }
 
-  router.setNotFound = (cb) => {
-    notFound = cb
+  router.setNotFound = (callback) => {
+    notFound = callback
     return router
   }
 
@@ -87,7 +102,8 @@ export default () => {
       console.log('hash changed !')
       checkRoutes(dispatch, redirect)
     })
-    if (!window.location.hash) {
+
+    if (isHashFalsy(window.location.hash)) {
       window.location.hash = '#/posts'
     }
 
