@@ -3,6 +3,7 @@ title: '서버 컴포넌트'
 summary: '리액트 18에 추가된 서버 컴포넌트에 대해서'
 tag: [REACT]
 imgSrc: 'static/img/react.jpg'
+idx: 3
 ---
 ### 서버 컴포넌트, 클라이언트 컴포넌트, 공용 컴포넌트
 - **서버 컴포넌트**

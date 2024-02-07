@@ -3,6 +3,7 @@ title: '파이버 아키텍쳐'
 summary: '리액트 렌더링 아키텍쳐인 파이버에 대해서'
 tag: [REACT]
 imgSrc: 'static/img/react.jpg'
+idx: 1
 ---
 React 16에 등장한 가상 DOM을 이용하여 렌더링 과정을 최적화하기 위한 아키텍처다.
 
