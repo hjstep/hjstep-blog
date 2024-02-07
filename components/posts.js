@@ -12,10 +12,10 @@ const bindDataToNode = ({ attributes }, index, templateNode) => {
   clonedTemplateNode.querySelector('.post').dataset.index = index + 1
   clonedTemplateNode.querySelector('.title').textContent = attributes.title
   clonedTemplateNode.querySelector('.summary').textContent = attributes.summary
-  clonedTemplateNode.querySelector('.date').textContent = attributes.date.slice(
-    0,
-    10,
-  )
+  // clonedTemplateNode.querySelector('.date').textContent = attributes.date.slice(
+  //   0,
+  //   10,
+  // )
   return clonedTemplateNode
 }
 
