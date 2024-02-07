@@ -47,15 +47,14 @@
   width: 1050px;
   height: 100%;
 }
-.info .title {
+.info .subtitle {
   opacity: 0.7;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   color: #ffffff;
-  letter-spacing: 1;
-  font-size: 30px;
+  letter-spacing: 2px;
+  font-size: 23px;
   font-weight: 500;
   line-height: 1.25;
-  padding-bottom: 30px;
 }
 .sticky-wrapper {
   position: fixed;
