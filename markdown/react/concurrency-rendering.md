@@ -3,6 +3,7 @@ title: '동시성 렌더링'
 summary: '리액트 18 동시성 렌더링에 대해서'
 tag: [REACT]
 imgSrc: 'static/img/react.jpg'
+idx: 2
 ---
 ## 동시성 렌더링을 다룰 수 있는 훅
 지연된 렌더링은 중단가능, 사용자의 인터렉션을 차단하지않는다

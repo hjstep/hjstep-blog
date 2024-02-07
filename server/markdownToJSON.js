@@ -8,13 +8,23 @@ const extension = '.json'
 
 const transferMarkdownToJSON = (filePath) => {
   const files = fs.readdirSync(filePath)
-  const posts = files.reduce((result, fileName) => {
-    const file = fs.readFileSync(path.join(filePath, fileName), 'utf8')
-    const { attributes, body } = frontMatter(file)
-    const htmlBody = markdownIt().render(body)
-    result.push({ attributes, htmlBody })
-    return result
-  }, [])
+  const posts = files
+    .reduce((result, fileName) => {
+      const file = fs.readFileSync(path.join(filePath, fileName), 'utf8')
+      const { attributes, body } = frontMatter(file)
+      const htmlBody = markdownIt().render(body)
+      result.push({ attributes, htmlBody })
+      return result
+    }, [])
+    .sort((a, b) => {
+      if (a.attributes.idx < b.attributes.idx) {
+        return -1
+      }
+      if (a.attributes.idx > b.attributes.idx) {
+        return 1
+      }
+      return 0
+    })
   return posts
 }
 
