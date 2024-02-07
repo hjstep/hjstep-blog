@@ -1,10 +1,7 @@
 .post {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -27,17 +24,11 @@
   margin-bottom: 10px;
 }
 
-.tag label {
-  background-color: #f2f2f2;
-  padding: 5px 8px;
-  margin-right: 10px;
-  border-radius: 20px;
-}
-
 .tag mark {
   background-color: transparent;
-  color: #fb8500;
-  font-weight: bold;
+  color: #4ab0f1;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .date {

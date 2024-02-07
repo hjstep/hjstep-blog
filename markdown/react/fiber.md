@@ -1,8 +1,8 @@
 ---
 title: '파이버 아키텍쳐'
-date: 2024-01-29
 summary: '리액트 렌더링 아키텍쳐인 파이버에 대해서'
-tag: [react]
+tag: [REACT]
+imgSrc: 'static/img/react.jpg'
 ---
 
 # 리액트 파이버
