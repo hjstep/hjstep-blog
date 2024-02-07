@@ -1,8 +1,8 @@
 ---
 title: '서버 컴포넌트'
-date: 2024-01-30
 summary: '리액트 18에 추가된 서버 컴포넌트에 대해서'
-tag: [react]
+tag: [REACT]
+imgSrc: 'static/img/react.jpg'
 ---
 
 # 리액트 18 서버 컴포넌트
