@@ -1,58 +1,79 @@
 .container {
+  position: relative;
+  padding-top: 120px;
+  margin: 0px auto 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 1050px;
   justify-content: center;
 }
-
-#root {
-  width: 80%;
-  max-width: 1000px;
-  margin: 0 auto;
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.8em;
+  margin-bottom: 30px;
+  color: #292929;
+}
+.section-title::after {
+  content: '';
+  width: inherit;
+  height: 1px;
+  background: #292929;
+  margin-top: 8px;
+  display: block;
 }
 
+.main {
+  margin-top: 70px;
+  width: 100%;
+  height: 560px;
+  background-color: #292929;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(/static/img/main.jpg);
+}
+.sticky-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
 .header {
-  background-color: #023047;
+  height: 73px;
+  background-color: #ffffff;
   color: white;
   padding: 20px;
-  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
 }
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .left,
 .right {
   display: flex;
+  align-items: center;
 }
-
-.left {
-  padding-left: 5px;
-  justify-content: flex-start;
-}
-.left span {
+.navigation .left {
   display: flex;
-  margin-left: 10px;
-  font-weight: bold;
+  align-items: center;
+  margin-left: 50px;
 }
-
-.right {
-  padding-right: 5px;
-  justify-content: flex-end;
-}
-.right span {
+.navigation .right {
   display: flex;
+  width: 200px;
+  justify-content: space-evenly;
+  margin-right: 30px;
 }
 
 .page {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 20px;
   width: 100%;
 }
 
@@ -79,9 +100,28 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 1400px) {
+  .container {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .container {
+    width: 800px;
+  }
+}
 @media screen and (max-width: 768px) {
-  #root {
-    width: 95%;
+  .container {
+    width: 700px;
+  }
+  .main {
+    height: 500px;
+    background-image: url(/static/img/main.jpg);
   }
 
   .header,
@@ -90,13 +130,24 @@
   .right {
     padding: 10px;
   }
+  .navigation .left {
+    margin-left: 0;
+  }
+  .navigation .right {
+    margin-right: 0;
+  }
 
   .left,
   .right {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .page {
     padding-top: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
+    width: 400px;
   }
 }
