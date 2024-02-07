@@ -60,7 +60,7 @@
 }
 .navigation .left {
   display: flex;
-  align-items: center;
+  justify-content: space-evenly;
   margin-left: 50px;
 }
 .navigation .right {
