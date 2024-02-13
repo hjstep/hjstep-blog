@@ -1,8 +1,7 @@
 ---
 title: '[시리즈] 리액트 원리 파헤치기 - Intro'
 summary: '리액트 파헤치기 시리즈 01 - 사전지식'
-tag: [REACT]
-imgSrc: 'static/img/react.jpg'
+tag: [리액트 파헤치기 시리즈, REACT]
 idx: 5
 ---
 
