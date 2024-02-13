@@ -6,7 +6,7 @@ const bindDataToNode = ({ attributes }, index, templateNode) => {
   const clonedTemplateNode = templateNode.cloneNode(true) // 복제하지않으면 동기화됨 live node
   attributes.tag.forEach((tag) => {
     clonedTemplateNode.querySelector('.tag').innerHTML +=
-      `<label><mark>#${tag}</mark></label>`
+      `<label><mark>#${tag}&nbsp;&nbsp;</mark></label>`
   })
 
   clonedTemplateNode.querySelector('.post').dataset.index = index + 1

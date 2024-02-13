@@ -18,10 +18,10 @@ const transferMarkdownToJSON = (filePath) => {
     }, [])
     .sort((a, b) => {
       if (a.attributes.idx < b.attributes.idx) {
-        return -1
+        return 1
       }
       if (a.attributes.idx > b.attributes.idx) {
-        return 1
+        return -1
       }
       return 0
     })

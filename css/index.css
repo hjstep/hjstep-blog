@@ -37,3 +37,7 @@ h3 {
 .default {
   color: #292929;
 }
+
+.markdown-body h2 {
+  margin-top: 60px
+}
