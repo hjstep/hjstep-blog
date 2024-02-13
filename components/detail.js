@@ -7,7 +7,14 @@ const bindDataToNode = ({ attributes, htmlBody }, templateNode) => {
   const clonedTemplateNode = templateNode.cloneNode(true)
   clonedTemplateNode.querySelector('.markdown-body').innerHTML = htmlBody
   clonedTemplateNode.querySelector('.title').textContent = attributes.title
-  clonedTemplateNode.querySelector('.detail-image').style.backgroundImage = `url(${attributes.imgSrc})`
+  if (attributes.imgSrc) {
+    clonedTemplateNode.querySelector(
+      '.detail-image',
+    ).style.backgroundImage = `url(${attributes.imgSrc})`
+  } else {
+    clonedTemplateNode.querySelector('.detail-image').remove()
+  }
+
   // clonedTemplateNode.querySelector('.date').textContent =
   //   attributes.date?.slice(0, 10)
   return clonedTemplateNode
