@@ -45,6 +45,6 @@ reconciler는 업데이트를 감지하여 workInProgress 트리를 만들고  c
 - 이 과정은 동기적으로 실행된다.
 
 ## 마치며
-이번에는 VDOM과 reconciler가 무엇인지에 대해 알아보았다.  
+이번에는 VDOM과 reconciler가 무엇인지에 대해 간략히 알아보았다.  
 복잡하게 생각할 필요없이 결국 리액트는 VDOM과 reconciler라는 컨셉을 통해 렌더링 과정을 최적화하는 라이브러리라는 것을 기억하자.  
-다음은 useState를 코드 레벨에서 까보면서 reconciler가 어떤 역할을 하는지 알아보자.
+다음은 useState를 코드 레벨에서 까보면서 reconciler가 어떤 역할을 하는지 자세히 알아보자.
