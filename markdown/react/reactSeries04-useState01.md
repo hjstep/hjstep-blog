@@ -67,7 +67,7 @@ ReactSharedInternals 객체의 프로퍼티로 할당하고 있다.
 
 ### renderWithHooks 함수
 - ReactCurrentDispatcher.current는 renderWithHooks 함수에서 할당해주고 있다. 
-![renderWithHooks01](../../static/img/series/react/renderWithHooks01.png)  
+![renderWithhooks01](../../static/img/series/react/renderWithhooks01.png)  
 
 - 조건절 `current === null || current.memoizedState === null`
 현재 current 트리가 없다는 뜻이며, 컴포넌트가 Mount 상태라는 것이다. 
