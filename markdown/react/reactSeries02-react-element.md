@@ -2,7 +2,7 @@
 title: '[시리즈] 리액트 원리 파헤치기 02 - react element'
 summary: '리액트 파헤치기 시리즈 02 - react element'
 tag: [리액트 파헤치기 시리즈, REACT]
-idx: 6
+idx: 2
 ---
 
 fiber node 객체에 대해 살펴보기전에 react element가 무엇인지 정확히 알고 넘어갈 필요가 있다.  

@@ -2,7 +2,7 @@
 title: '[시리즈] 리액트 원리 파헤치기 03 - VDOM과 reconciler'
 summary: '리액트 파헤치기 시리즈 03 - VDOM과 reconciler'
 tag: [리액트 파헤치기 시리즈, REACT]
-idx: 7
+idx: 3
 ---
 
 virtual DOM이라고 하는 VDOM과 reconciler에 대해 알아보자.
