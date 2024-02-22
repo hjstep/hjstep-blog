@@ -1,18 +1,41 @@
 const fs = require('fs')
 const path = require('path')
+
 const frontMatter = require('front-matter')
-const markdownIt = require('markdown-it')
+const MarkdownIt = require('markdown-it')
+const hljs = require('highlight.js/lib/core')
+
+// Load any languages you need
+hljs.registerLanguage(
+  'javascript',
+  require('highlight.js/lib/languages/javascript'),
+)
+
+const mdInstance = new MarkdownIt({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        // 'highlight.js'를 사용하여 코드 블록에 스타일 적용
+        return `<pre class="hljs"><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
+      } catch (__) {}
+    }
+  },
+})
 const MARKDOWN_DIR = './markdown'
 const JSON_DIR = './data'
 const extension = '.json'
 
+      
 const transferMarkdownToJSON = (filePath) => {
   const files = fs.readdirSync(filePath)
   const posts = files
     .reduce((result, fileName) => {
       const file = fs.readFileSync(path.join(filePath, fileName), 'utf8')
       const { attributes, body } = frontMatter(file)
-      const htmlBody = markdownIt().render(body)
+
+
+
+      const htmlBody = mdInstance.render(body)
       result.push({ attributes, htmlBody })
       return result
     }, [])
@@ -55,7 +78,24 @@ const readMarkdownDir = () => {
     })
   })
 }
+  
+function myCustomPlugin(md) {
+  // 'fence' 규칙을 위한 기존 렌더러 저장
+  const defaultRender =
+    md.renderer.rules.fence ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options)
+    }
 
-;(() => {
+  md.renderer.rules.fence = function (tokens, idx, options, env, self) {
+    // 기존 렌더러 함수 호출
+    const result = defaultRender(tokens, idx, options, env, self)
+
+    // 결과에 클래스 추가
+    return result.replace('<code>', '<code class="language-javascript hljs">')
+  }
+}
+
+; (() => {
   readMarkdownDir()
 })()
