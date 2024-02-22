@@ -1,6 +1,6 @@
 ---
 title: '[시리즈] 리액트 원리 파헤치기 02 - react element'
-summary: '리액트 파헤치기 시리즈 02 - react element'
+summary: '리액트 파헤치기 시리즈 - react element'
 tag: [리액트 파헤치기 시리즈, REACT]
 idx: 2
 ---

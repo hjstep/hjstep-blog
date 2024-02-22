@@ -1,6 +1,6 @@
 ---
 title: '[시리즈] 리액트 원리 파헤치기 04 - useState가 정의된 곳'
-summary: '리액트 파헤치기 시리즈 04 - useState 01'
+summary: '리액트 파헤치기 시리즈 - useState 1'
 tag: [리액트 파헤치기 시리즈, REACT, useState]
 idx: 4
 ---

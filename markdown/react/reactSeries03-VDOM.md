@@ -1,6 +1,6 @@
 ---
 title: '[시리즈] 리액트 원리 파헤치기 03 - VDOM과 reconciler'
-summary: '리액트 파헤치기 시리즈 03 - VDOM과 reconciler'
+summary: '리액트 파헤치기 시리즈 - VDOM과 reconciler'
 tag: [리액트 파헤치기 시리즈, REACT]
 idx: 3
 ---
