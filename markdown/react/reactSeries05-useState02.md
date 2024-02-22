@@ -1,6 +1,6 @@
 ---
 title: '[시리즈] 리액트 원리 파헤치기 05 - useState의 state는 어떻게 구현되어 있을까?'
-summary: '리액트 파헤치기 시리즈 05 - useState 02'
+summary: '리액트 파헤치기 시리즈 - useState 2'
 tag: [리액트 파헤치기 시리즈, REACT, useState]
 idx: 5
 ---
@@ -65,7 +65,6 @@ idx: 5
 
   - dispatch는 상태 업데이트 함수이다.
     - dispatch는 dispatchSetState함수를 bind하고있는데, 이때 인자들은 currentlyRenderingFiber(현재 fiber)와 queue이다.
-    - 우리가 setState 인자로 받는 부분이 바로 이 코드를 통해 이루어진다.
 
   - `return [hook.memoizedState, dispatch]`
     - 즉, useState 함수 리턴값 배열의 첫번째 원소는 hook.memoizedState가 들어가게되고(**state**), 두번째 원소는 dispatch가 상태 업데이트 함수(**setState**)로 들어가게된다.
