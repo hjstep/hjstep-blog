@@ -80,16 +80,6 @@ fiber.alternate(current이면 workInProgress, workInProgress이면 current)가 c
 #### 1. **update 객체 생성**
 
 ```javascript
-
-/* 다음시간에 분석예정 패스
-const currentTime = requestCurrentTimeForUpdate();
-const suspenseConfig = requestCurrentSuspenseConfig();
-const expirationTime = computeExpirationForFiber(
-    currentTime,
-    fiber,
-    suspenseConfig,
-);*/
-
 const update: Update<S, A> = {
     expirationTime,
     suspenseConfig,
